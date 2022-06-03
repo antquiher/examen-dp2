@@ -52,6 +52,7 @@ public class Bosse extends AbstractEntity{
 		@Temporal(TemporalType.TIMESTAMP)
 		protected Date period;
 		
+		@NotBlank
 		protected Money income;
 		
 		@URL
