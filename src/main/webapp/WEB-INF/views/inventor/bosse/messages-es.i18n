@@ -32,3 +32,4 @@ inventor.Chimpum.period.duration-error = La diferencia entre la fecha de inicio 
 inventor.Chimpum.period.code-error = Ya existe este código
 inventor.bosse.null-code = El código debe ser distinto de nulo
 inventor.bosse.bad-code = No coincide la fecha con el código
+inventor.Chimpum.code.repeated.retailPrice.not-null = El ingreso no puede ser nulo

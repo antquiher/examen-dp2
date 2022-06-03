@@ -36,10 +36,12 @@ public class BosseDeleteService implements AbstractDeleteService<Inventor, Bosse
 		assert entity != null;
 		assert errors != null;
 
-		if(entity.getPeriod() != null) {
+		if(entity.getIncome() != null) {
 			errors.state(request, entity.getIncome().getAmount() > 0, "income", "inventor.Chimpum.code.repeated.retailPrice.non-negative");
 		}
-		
+		else {
+			errors.state(request, entity.getIncome() != null, "income", "inventor.Chimpum.code.repeated.retailPrice.not-null");
+		}
 		
 		if(entity.getPeriod() != null) {
 			errors.state(request, entity.getPeriod().after(entity.getCreationMoment()), "period", "inventor.Chimpum.period.order-error");

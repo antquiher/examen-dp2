@@ -69,6 +69,8 @@ public class BosseCreateService implements AbstractCreateService<Inventor, Bosse
 		
 		if(entity.getIncome() != null) {
 			errors.state(request, entity.getIncome().getAmount() > 0, "income", "inventor.Chimpum.code.repeated.retailPrice.non-negative");
+		}else {
+			errors.state(request, entity.getIncome() != null, "income", "inventor.Chimpum.code.repeated.retailPrice.not-null");
 		}
 		
 		
