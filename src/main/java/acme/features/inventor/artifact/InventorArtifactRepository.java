@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import acme.artifact.Artifact;
 import acme.artifact.ArtifactType;
 import acme.artifact.PartOf;
-import acme.entities.chimpum.Chimpum;
+import acme.entities.bosse.Bosse;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
 import acme.systemSetting.SystemSetting;
@@ -34,6 +34,6 @@ public interface InventorArtifactRepository extends AbstractRepository {
 	@Query("select a from Artifact a where a.code=:code")
 	Artifact findByCode(String code);
 	
-	@Query("select c from Chimpum c")
-	Collection<Chimpum> findAllChimpum();
+	@Query("select c from Bosse c")
+	Collection<Bosse> findAllChimpum();
 }

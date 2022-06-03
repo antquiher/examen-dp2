@@ -9,25 +9,27 @@
 # they accept any liabilities with respect to them.
 
 inventor.chimpum.list.label.code = Code
-inventor.chimpum.list.label.title = Title
-inventor.chimpum.list.label.description = Description
+inventor.chimpum.list.label.title = Subject
+inventor.chimpum.list.label.description = Summary
 
 
-inventor.chimpum.form.label.title = Title
+inventor.chimpum.form.label.title = Subject
 inventor.chimpum.form.label.code = Code
 inventor.chimpum.form.label.creationMoment = Creation Moment
-inventor.chimpum.form.label.description = Description
+inventor.chimpum.form.label.description = Summary
 inventor.chimpum.form.label.period = Period
-inventor.chimpum.form.label.budget = Budget
-inventor.chimpum.form.label.link = Link
+inventor.chimpum.form.label.budget = Income
+inventor.chimpum.form.label.link = More info
 inventor.chimpum.form.label.artifact = Artifact
 
-inventor.chimpum.list.button.create = New Chimpum
+inventor.chimpum.list.button.create = New Bosse
 inventor.chimpum.form.label.create = Create
 inventor.chimpum.form.label.update = Update
 inventor.chimpum.form.label.delete = Delete
 
-inventor.Chimpum.code.repeated.retailPrice.non-negative = The budget must be positive
-inventor.Chimpum.period.order-error = The finish date must be after the inital date or actual
+inventor.Chimpum.code.repeated.retailPrice.non-negative = The income must be positive
+inventor.Chimpum.period.order-error = The finish date must be after the inital date
 inventor.Chimpum.period.duration-error = The difference between the start and the finish date must be greater than a month
 inventor.Chimpum.period.code-error = This code already exists
+inventor.bosse.null-code = The code must be different from null
+inventor.bosse.bad-code = You have write bad the date

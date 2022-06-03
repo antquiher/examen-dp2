@@ -15,7 +15,7 @@ import acme.Dashboard.AdminDashboard;
 import acme.artifact.Artifact;
 import acme.artifact.ArtifactType;
 import acme.datatypes.StatusType;
-import acme.entities.chimpum.Chimpum;
+import acme.entities.bosse.Bosse;
 import acme.entities.patronage.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -307,9 +307,9 @@ public class AdminDashboardShowService implements AbstractShowService<Administra
 	//	Examen ------------------------------------------------------------------------------------------
 		
 		final int nChimpum = this.repository.findAllChimpums().size();
-		final Double nArtifacts = Double.valueOf(this.repository.findArtifact(ArtifactType.TOOL).size());	//cambiar en funcion de si es Tool o component
+		final Double nArtifacts = Double.valueOf(this.repository.findArtifact(ArtifactType.COMPONENT).size());	//cambiar en funcion de si es Tool o component
 		
-		result.setRatioOfArtifactsWithChimpum(nArtifacts>0? nChimpum/nArtifacts:0.);
+		result.setRatioOfArtifactsWithBosse(nArtifacts>0? nChimpum/nArtifacts:0.);
 		
 		final Map<String, Double> mAverageChimpumBudget= new HashMap<String, Double>();
 		final Map<String, Double> mDeviationChimpumBudget= new HashMap<String, Double>();
@@ -329,7 +329,7 @@ public class AdminDashboardShowService implements AbstractShowService<Administra
 		desviationUsd= 0.;
 		desviationGbp= 0.;
 			
-		final Collection<Chimpum> chimpumList = this.repository.findAllChimpums();
+		final Collection<Bosse> chimpumList = this.repository.findAllChimpums();
 		
 		maxEur=0.;
 		maxUsd=0.;
@@ -338,11 +338,11 @@ public class AdminDashboardShowService implements AbstractShowService<Administra
 		minUsd=Double.MAX_VALUE;
 		minGbp=Double.MAX_VALUE;
 		
-		for(final Chimpum c: chimpumList) {
-			final Double prize = c.getBudget().getAmount(); 
-			switch (c.getBudget().getCurrency()) {
+		for(final Bosse c: chimpumList) {
+			final Double prize = c.getIncome().getAmount(); 
+			switch (c.getIncome().getCurrency()) {
 			case "EUR":
-				totalEur+=c.getBudget().getAmount();
+				totalEur+=c.getIncome().getAmount();
 				nEur++;
 				
 				maxEur= prize>maxEur?prize:maxEur;
@@ -350,7 +350,7 @@ public class AdminDashboardShowService implements AbstractShowService<Administra
 				
 				break;
 			case "USD":
-				totalUsd+=c.getBudget().getAmount();
+				totalUsd+=c.getIncome().getAmount();
 				nUsd++;
 
 				maxUsd= prize>maxUsd?prize:maxUsd;
@@ -358,7 +358,7 @@ public class AdminDashboardShowService implements AbstractShowService<Administra
 				
 				break;
 			case "GBP":
-				totalGbp+=c.getBudget().getAmount();
+				totalGbp+=c.getIncome().getAmount();
 				nGbp++;
 
 				maxGbp= prize>maxGbp?prize:maxGbp;
@@ -368,19 +368,19 @@ public class AdminDashboardShowService implements AbstractShowService<Administra
 			}
 			
 		}
-		for(final Chimpum c: chimpumList) {
-			switch (c.getBudget().getCurrency()) {
+		for(final Bosse c: chimpumList) {
+			switch (c.getIncome().getCurrency()) {
 			case "EUR":
-				desviationEur+=(c.getBudget().getAmount() - totalEur!=0?totalEur/nEur:0.)
-					  *(c.getBudget().getAmount() - totalEur!=0?totalEur/nEur:0.);
+				desviationEur+=(c.getIncome().getAmount() - totalEur!=0?totalEur/nEur:0.)
+					  *(c.getIncome().getAmount() - totalEur!=0?totalEur/nEur:0.);
 				break;
 			case "USD":
-				desviationUsd+=(c.getBudget().getAmount() - totalUsd!=0?totalUsd/nUsd:0.)
-					  *(c.getBudget().getAmount() - totalUsd!=0?totalUsd/nUsd:0.);
+				desviationUsd+=(c.getIncome().getAmount() - totalUsd!=0?totalUsd/nUsd:0.)
+					  *(c.getIncome().getAmount() - totalUsd!=0?totalUsd/nUsd:0.);
 				break;
 			case "GBP":
-				desviationGbp+=(c.getBudget().getAmount() - totalGbp!=0?totalGbp/nGbp:0.)
-					  *(c.getBudget().getAmount() - totalGbp!=0?totalGbp/nGbp:0.);
+				desviationGbp+=(c.getIncome().getAmount() - totalGbp!=0?totalGbp/nGbp:0.)
+					  *(c.getIncome().getAmount() - totalGbp!=0?totalGbp/nGbp:0.);
 				break;
 			}
 		}
@@ -398,10 +398,10 @@ public class AdminDashboardShowService implements AbstractShowService<Administra
 		mDeviationChimpumBudget.put("EUR", nEur!=0?Math.sqrt(desviationEur/nEur):0);
 		mDeviationChimpumBudget.put("USD", nUsd!=0?Math.sqrt(desviationUsd/nUsd):0);
 		mDeviationChimpumBudget.put("GBP", nGbp!=0?Math.sqrt(desviationGbp/nGbp):0);
-		result.setAverageChimpumBudget(mAverageChimpumBudget);
-		result.setMaxChimpumBudget(mMaxChimpumBudget);
-		result.setMinChimpumBudget(mMinChimpumBudget);
-		result.setDeviationChimpumBudget(mDeviationChimpumBudget);
+		result.setAverageBosseBudget(mAverageChimpumBudget);
+		result.setMaxBosseBudget(mMaxChimpumBudget);
+		result.setMinBosseBudget(mMinChimpumBudget);
+		result.setDeviationBosseBudget(mDeviationChimpumBudget);
 		
 		return result;
 	}

@@ -9,24 +9,26 @@
 # they accept any liabilities with respect to them.
 
 inventor.chimpum.list.label.code = Código
-inventor.chimpum.list.label.title = Titulo
-inventor.chimpum.list.label.description = Descripcón
+inventor.chimpum.list.label.title = Tema
+inventor.chimpum.list.label.description = Resumen
 
-inventor.chimpum.form.label.title = Título
+inventor.chimpum.form.label.title = Tema
 inventor.chimpum.form.label.code = Código
 inventor.chimpum.form.label.creationMoment = Fecha de Creación 
-inventor.chimpum.form.label.description = Descripción
+inventor.chimpum.form.label.description = Resumen
 inventor.chimpum.form.label.period = Periodo
-inventor.chimpum.form.label.budget = Presupuesto
-inventor.chimpum.form.label.link = Enlace
+inventor.chimpum.form.label.budget = Ingreso
+inventor.chimpum.form.label.link = Más información
 inventor.chimpum.form.label.artifact = Artefacto
 
-inventor.chimpum.list.button.create = Nuevo Chimpum
+inventor.chimpum.list.button.create = Nuevo Jefe
 inventor.chimpum.form.label.create = Crear
 inventor.chimpum.form.label.update = Actualizar
 inventor.chimpum.form.label.delete = Eliminar
 
-inventor.Chimpum.code.repeated.retailPrice.non-negative = El presupuesto debe ser positivo
-inventor.Chimpum.period.order-error = La fecha final debe ser posterior a la fecha de inicio o actual
+inventor.Chimpum.code.repeated.retailPrice.non-negative = El ingreso debe ser positivo
+inventor.Chimpum.period.order-error = La fecha final debe ser posterior a la fecha de inicio
 inventor.Chimpum.period.duration-error = La diferencia entre la fecha de inicio y final debe ser superior a un mes
 inventor.Chimpum.period.code-error = Ya existe este código
+inventor.bosse.null-code = El código debe ser distinto de nulo
+inventor.bosse.bad-code = No coincide la fecha con el código

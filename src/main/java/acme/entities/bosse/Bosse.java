@@ -1,4 +1,4 @@
-package acme.entities.chimpum;
+package acme.entities.bosse;
 
 import java.util.Date;
 
@@ -24,7 +24,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Chimpum extends AbstractEntity{
+public class Bosse extends AbstractEntity{
 
 	//Serialisation identifier
 	
@@ -34,7 +34,7 @@ public class Chimpum extends AbstractEntity{
 	//Attributes announcement
 	
 		@Column(unique=true)
-		@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$",  message = "default.error.conversion")
+		@Pattern(regexp = "^[0-9]{2}/[0-9]{2}/[0-9]{2}?$",  message = "default.error.conversion")  //yy-mm-dd
 		protected  String code;
 	
 		@Temporal(TemporalType.TIMESTAMP)
@@ -43,19 +43,19 @@ public class Chimpum extends AbstractEntity{
 		
 		@NotBlank
 		@Length(min=1,max=100)
-		protected String title;
+		protected String subject;
 		
 		@NotBlank
 		@Length(min=1,max=255)
-		protected String description;
+		protected String summary;
 		
 		@Temporal(TemporalType.TIMESTAMP)
 		protected Date period;
 		
-		protected Money budget;
+		protected Money income;
 		
 		@URL
-		protected String link;
+		protected String moreInfo;
 		
 		
 		//Relationships

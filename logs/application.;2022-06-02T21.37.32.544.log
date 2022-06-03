@@ -1,3 +1,0 @@
-2022-06-02 21:37:32.539 INFO  [acme.Launcher@main] Starting Launcher using Java 1.8.0_281 on LAPTOP-23RRLASM with PID 16576 (C:\Users\oliva\OneDrive\Escritorio\Workspace-22.0\Frameworks\Acme-Framework-22.7\target\classes started by oliva in C:\Users\oliva\OneDrive\Escritorio\Workspace-22.0\Projects\Acme-Toolkit) 
-2022-06-02 21:37:32.540 DEBUG [acme.Launcher@main] Running with Spring Boot v2.4.2, Spring v5.3.3 
-2022-06-02 21:37:32.543 INFO  [acme.Launcher@main] The following profiles are active: development,default 

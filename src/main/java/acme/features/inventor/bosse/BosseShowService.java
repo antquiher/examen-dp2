@@ -1,4 +1,4 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.bosse;
 
 import java.util.List;
 
@@ -6,38 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.artifact.Artifact;
-import acme.entities.chimpum.Chimpum;
+import acme.artifact.ArtifactType;
+import acme.entities.bosse.Bosse;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
 @Service
-public class ChimpumShowService implements AbstractShowService<Inventor, Chimpum>{
+public class BosseShowService implements AbstractShowService<Inventor, Bosse>{
 	
 	// Internal state ---------------------------------------------------------
 
 		@Autowired
-		protected ChimpumRepository repository;
+		protected BosseRepository repository;
 
-		// AbstractShowService<Inventor, Chimpum> interface --------------------------
+		// AbstractShowService<Inventor, Bosse> interface --------------------------
 
 		@Override
-		public boolean authorise(final Request<Chimpum> request) {
+		public boolean authorise(final Request<Bosse> request) {
 			assert request != null;
 
 			return true;
 		}
 
 		@Override
-		public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
+		public void unbind(final Request<Bosse> request, final Bosse entity, final Model model) {
 			assert request != null;
 			assert entity != null;
 			assert model != null;
 
-			request.unbind(entity, model, "code", "creationMoment", "title", "description", "period", "budget", "link");
+			request.unbind(entity, model, "code", "creationMoment", "subject", "summary", "period", "income", "moreInfo");
 			model.setAttribute("isNew", false);
-			List<Artifact> listArt = this.repository.findArtifactList();
+			List<Artifact> listArt = this.repository.findArtifactList(ArtifactType.COMPONENT);
 			Artifact a = new Artifact();
 			listArt.add(0, a);
 			a = entity.getArtefact();
@@ -49,14 +50,14 @@ public class ChimpumShowService implements AbstractShowService<Inventor, Chimpum
 		}
 
 		@Override
-		public Chimpum findOne(final Request<Chimpum> request) {
+		public Bosse findOne(final Request<Bosse> request) {
 			assert request != null;
 
-			Chimpum result;
+			Bosse result;
 			int id;
 
 			id = request.getModel().getInteger("id");
-			result = this.repository.findOneChimpumById(id);
+			result = this.repository.findOneBosseById(id);
 
 			return result;
 		}
